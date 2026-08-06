@@ -1,0 +1,282 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+}
+
+/* ==========================
+   REGISTER PAGE
+========================== */
+
+.auth-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    background:linear-gradient(135deg,#faf7f2,#f4e9df);
+
+}
+
+.auth-container{
+
+    width:100%;
+    max-width:460px;
+
+}
+
+.auth-card{
+
+    background:#fff;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.10);
+
+}
+
+.auth-logo{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.auth-logo i{
+
+    font-size:34px;
+
+    color:#C96C4B;
+
+}
+
+.auth-logo h2{
+
+    color:#222;
+
+    font-size:28px;
+
+}
+
+.auth-card h1{
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+    color:#222;
+
+}
+
+.auth-card p{
+
+    color:#777;
+
+    margin-bottom:30px;
+
+}
+
+.form-group{
+
+    margin-bottom:18px;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:1px solid #ddd;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus{
+
+    border-color:#C96C4B;
+
+    box-shadow:0 0 0 3px rgba(201,108,75,.12);
+
+}
+
+.password-box{
+
+    position:relative;
+
+}
+
+.password-box i{
+
+    position:absolute;
+
+    right:18px;
+
+    top:18px;
+
+    color:#888;
+
+    cursor:pointer;
+
+}
+
+.auth-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#C96C4B;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.auth-btn:hover{
+
+    background:#af573b;
+
+    transform:translateY(-2px);
+
+}
+
+.auth-footer{
+
+    margin-top:25px;
+
+}
+
+.auth-footer a{
+
+    color:#C96C4B;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.auth-footer a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:600px){
+
+    .auth-card{
+
+        padding:35px 25px;
+
+    }
+
+    .auth-card h1{
+
+        font-size:30px;
+
+    }
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+    background:#121212;
+
+}
+
+body.dark .auth-page{
+
+    background:#121212;
+
+}
+
+body.dark .auth-card{
+
+    background:#1b1b1b;
+
+}
+
+body.dark .auth-logo h2,
+
+body.dark .auth-card h1{
+
+    color:#fff;
+
+}
+
+body.dark .auth-card p{
+
+    color:#ccc;
+
+}
+
+body.dark input{
+
+    background:#2a2a2a;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+}
+
+body.dark input:focus{
+
+    border-color:#C96C4B;
+
+}
