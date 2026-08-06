@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>KARZO'S CART | Premium Shopping</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<h2>KARZO'S CART</h2>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#shop">Shop</a></li>
+
+<li><a href="#categories">Categories</a></li>
+
+<li><a href="#deals">Deals</a></li>
+
+<li><a href="#reviews">Reviews</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="nav-icons">
+
+    <a href="wishlist.html" class="nav-heart">
+    <i class="fa-regular fa-heart"></i>
+</a>
+
+    <div class="cart-icon">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+    <span id="cart-count" class="cart-count">0</span>
+
+</div>
+
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</div>
+
+<div class="mobile-search">
+
+    <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search premium products...">
+
+</div>
+
+</nav>
+  <!-- ==========================
+     SIDE MENU
+========================== -->
+
+<div class="side-menu" id="side-menu">
+
+    <button class="close-menu" id="close-menu">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <h2>Menu</h2>
+
+    <a href="#">🏠 Home</a>
+
+    <a href="#shop">🛍 Shop</a>
+
+    <a href="login.html">👤 Login</a>
+
+<a href="register.html">📝 Register</a>
+
+<a href="profile.html">👤 Profile</a>
+
+<a href="wishlist.html">❤️ Wishlist</a>
+
+<a href="orders.html">📦 My Orders</a>
+
+    <a href="#" id="dark-toggle">
+
+        🌙 Dark Mode
+
+    </a>
+
+</div>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+</header>
+  <!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="hero-badge">
+            New Collection 2026
+        </span>
+
+        <h1>
+            Curated Collections For Modern Living.
+        </h1>
+
+        <p>
+            Discover thoughtfully selected fashion, home décor, electronics and lifestyle essentials—all in one beautifully designed shopping experience.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#" class="hero-btn">
+                Shop Now
+            </a>
+
+            <a href="#" class="hero-btn-outline">
+                Explore Collection
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <div class="hero-circle"></div>
+
+        <img src="hero.jpg" alt="Premium Shopping">
+
+    </div>
+
+    <div class="hero-stats">
+
+        <div>
+            <h3>15K+</h3>
+            <p>Happy Customers</p>
+        </div>
+
+        <div>
+            <h3>2K+</h3>
+            <p>Premium Products</p>
+        </div>
+
+        <div>
+            <h3>98%</h3>
+            <p>Positive Reviews</p>
+        </div>
+
+    </div>
+
+</section>
+  <!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="categories">
+
+    <div class="section-title">
+
+        <span>Shop By Category</span>
+
+        <h2>Find Everything You Need</h2>
+
+        <p>
+            Explore our premium collections carefully selected for modern lifestyles.
+        </p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                👕
+            </div>
+
+            <h3>Fashion</h3>
+
+            <p>
+                Premium clothing, shoes and accessories.
+            </p>
+
+        </div>
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📱
+            </div>
+
+            <h3>Electronics</h3>
+
+            <p>
+                Smartphones, gadgets and smart devices.
+            </p>
+
+        </div>
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🏠
+            </div>
+
+            <h3>Home</h3>
+
+            <p>
+                Beautiful furniture and home decoration.
+            </p>
+
+        </div>
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                ⌚
+            </div>
+
+            <h3>Accessories</h3>
+
+            <p>
+                Watches, bags and luxury essentials.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- ==========================
+     PRODUCTS
+========================== -->
+
+<section class="products" id="shop">
+
+    <div class="section-title">
+
+        <span>Featured Products</span>
+
+        <h2>Curated For You</h2>
+
+        <p>
+            Discover our handpicked selection of premium
+            products made for modern living.
+        </p>
+
+    </div>
+  <div class="filter-buttons">
+
+    <button class="filter-btn active" data-category="All">
+        All
+    </button>
+
+    <button class="filter-btn" data-category="Fashion">
+        Fashion
+    </button>
+
+    <button class="filter-btn" data-category="Electronics">
+        Electronics
+    </button>
+
+    <button class="filter-btn" data-category="Luxury Watches">
+        Luxury Watches
+    </button>
+
+</div>
+  <div class="shop-toolbar">
+
+    <select id="sort-products">
+
+        <option value="default">Sort By</option>
+
+        <option value="low">Price: Low to High</option>
+
+        <option value="high">Price: High to Low</option>
+
+        <option value="rating">Highest Rated</option>
+
+    </select>
+
+</div>
+
+    <div class="product-grid" id="product-grid">
+
+        <!-- Products will be added by JavaScript -->
+
+    </div>
+
+</section>
+  <!-- ==========================
+     CHECKOUT
+========================== -->
+
+<section class="checkout" id="checkout">
+
+    <div class="section-title">
+
+        <span>Secure Checkout</span>
+
+        <h2>Complete Your Order</h2>
+
+        <p>
+            Fill in your delivery information to complete your purchase.
+        </p>
+
+    </div>
+
+    <div class="checkout-container">
+
+        <!-- Customer Information -->
+
+        <form class="checkout-form">
+
+            <h3>Shipping Information</h3>
+
+            <input type="text"
+                   placeholder="Full Name"
+                   id="customer-name">
+
+            <input type="email"
+                   placeholder="Email Address"
+                   id="customer-email">
+
+            <input type="tel"
+                   placeholder="Phone Number"
+                   id="customer-phone">
+
+            <input type="text"
+                   placeholder="Street Address"
+                   id="customer-address">
+
+            <input type="text"
+                   placeholder="City">
+
+            <input type="text"
+                   placeholder="Country">
+
+        </form>
+
+        <!-- Order Summary -->
+
+        <div class="order-summary">
+
+            <h3>Your Order</h3>
+          <div id="checkout-items"></div>
+
+            <div id="checkout-items">
+
+            </div>
+
+            <div class="summary-total">
+
+                <span>Total</span>
+
+                <strong id="checkout-total">
+
+                    $0
+
+                </strong>
+
+            </div>
+
+            <button id="place-order">
+
+                Place Order
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+  
+  <!-- ==========================
+     LUXURY DEALS
+========================== -->
+
+<section class="deals" id="deals">
+
+    <div class="deal-content">
+
+        <span class="deal-label">
+            LIMITED TIME OFFER
+        </span>
+
+        <h2>
+            Luxury You Love.<br>
+            Prices You'll Love More.
+        </h2>
+
+        <p>
+            Enjoy exclusive discounts on selected premium
+            products. Upgrade your lifestyle without
+            compromising on quality.
+        </p>
+
+        <div class="deal-info">
+
+            <div>
+                <strong>40%</strong>
+                <span>OFF</span>
+            </div>
+
+            <div>
+                <strong>24</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div>
+                <strong>FREE</strong>
+                <span>DELIVERY</span>
+            </div>
+
+        </div>
+
+        <a href="#shop" class="deal-btn">
+            Shop The Sale
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="deal-image">
+
+        <div class="deal-circle"></div>
+
+        <img
+            src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1000&q=80"
+            alt="Luxury Watch">
+
+    </div>
+
+</section>
+  <!-- ==========================
+     REVIEWS
+========================== -->
+
+<section class="reviews" id="reviews">
+
+    <div class="section-title">
+
+        <span>Customer Reviews</span>
+
+        <h2>Loved By Our Customers</h2>
+
+        <p>
+            See what our customers have to say about
+            their KARZO'S CART experience.
+        </p>
+
+    </div>
+
+    <div class="reviews-grid">
+
+        <article class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The quality is incredible. Everything arrived
+                beautifully packaged and exactly as described."
+            </p>
+
+            <div class="review-author">
+
+                <div class="author-avatar">
+                    A
+                </div>
+
+                <div>
+                    <h3>Alex Morgan</h3>
+                    <span>Verified Customer</span>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "KARZO'S CART has such a clean shopping experience.
+                I found exactly what I wanted in minutes."
+            </p>
+
+            <div class="review-author">
+
+                <div class="author-avatar">
+                    S
+                </div>
+
+                <div>
+                    <h3>Sophia Williams</h3>
+                    <span>Verified Customer</span>
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Premium products, fast delivery and excellent
+                customer service. I'll definitely shop here again."
+            </p>
+
+            <div class="review-author">
+
+                <div class="author-avatar">
+                    D
+                </div>
+
+                <div>
+                    <h3>Daniel Carter</h3>
+                    <span>Verified Customer</span>
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+  <!-- ==========================
+     CONTACT
+========================== -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-box">
+
+        <div class="contact-content">
+
+            <span>GET IN TOUCH</span>
+
+            <h2>
+                Have Questions?
+                We're Here To Help.
+            </h2>
+
+            <p>
+                Need help with an order, product information,
+                or anything else? Our team is ready to assist you.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+                        <strong>Email</strong>
+                        <p>hello@karzoscart.com</p>
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+                        <strong>Phone</strong>
+                        <p>+234 7018074775</p>
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+                        <strong>Location</strong>
+                        <p>Lagos, Nigeria</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form class="contact-form">
+
+            <h3>Send Us A Message</h3>
+
+            <div class="form-group">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <textarea
+                    rows="5"
+                    placeholder="Your Message"
+                    required></textarea>
+
+            </div>
+
+            <button type="submit" class="contact-btn">
+
+                Send Message
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================
+     FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <h2>KARZO'S CART</h2>
+
+            </div>
+
+            <p>
+                Premium products for modern living.
+                Curated with quality, style and simplicity.
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Shop</h3>
+
+            <a href="#shop">All Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#deals">Deals</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Company</h3>
+
+            <a href="#">About Us</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Support</h3>
+
+            <a href="#">Help Center</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 KARZO'S CART. All rights reserved.
+        </p>
+
+        <p>
+            Designed with style &nbsp;•&nbsp; Built with quality
+        </p>
+
+    </div>
+
+</footer>
+  <!-- ==========================
+     SHOPPING CART
+========================== -->
+
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<aside class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+
+        <div>
+            <span>Your Shopping</span>
+            <h2>Cart</h2>
+        </div>
+
+        <button class="close-cart" id="close-cart">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <div class="cart-items" id="cart-items">
+
+        <div class="empty-cart">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <h3>Your cart is empty</h3>
+
+            <p>
+                Add some premium products to get started.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="cart-bottom">
+
+    <div class="cart-total">
+
+        <span>Total</span>
+
+        <strong id="cart-total">
+            $0
+        </strong>
+
+    </div>
+
+    <button id="checkout-btn" class="checkout-btn">
+    Proceed To Checkout
+</button>
+
+    </div>
+
+</aside>
+  <!-- ==========================
+     PRODUCT QUICK VIEW
+========================== -->
+
+<div class="product-modal" id="product-modal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" id="close-modal">
+            &times;
+        </button>
+
+        <div class="modal-image">
+
+            <img
+                id="modal-image"
+                src=""
+                alt="">
+
+        </div>
+
+        <div class="modal-info">
+
+            <span id="modal-category"></span>
+
+            <h2 id="modal-name"></h2>
+
+            <div id="modal-rating"></div>
+
+            <h3 id="modal-price"></h3>
+
+            <p id="modal-description">
+                Premium quality product carefully selected for modern lifestyles.
+            </p>
+
+            <div class="modal-buttons">
+
+                <button id="modal-cart">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Add To Cart
+
+                </button>
+
+                <button id="buy-now">
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
