@@ -103,25 +103,50 @@ header{
     gap:20px;
 }
 
-.nav-icons i{
+.nav-heart,
+
+.cart-icon{
+
     width:45px;
+
     height:45px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     border-radius:50%;
 
     background:white;
 
-    font-size:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 
     cursor:pointer;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-
     transition:.3s;
+
+    text-decoration:none;
+
+}
+
+.nav-heart i,
+
+.cart-icon i{
+
+    font-size:18px;
+
+    color:#111827;
+
+}
+
+.nav-heart:hover,
+
+.cart-icon:hover{
+
+    transform:translateY(-3px);
+
 }
 .cart-icon{
 
