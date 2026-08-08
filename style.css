@@ -2736,3 +2736,226 @@ body.dark .product-wishlist.liked i{
     color:#C96C4B;
 
 }
+
+/* ==========================
+   DARK MODE FIXES
+========================== */
+
+/* Cart */
+body.dark .cart-header{
+    background:#1b1b1b;
+    border-bottom:1px solid #333;
+}
+
+body.dark .cart-header span{
+    color:#C96C4B;
+}
+
+body.dark .cart-header h2{
+    color:#fff;
+}
+
+body.dark .close-cart{
+    background:#f5f1ed;
+    color:#333;
+}
+
+body.dark .cart-items{
+    background:#121212;
+}
+
+body.dark .cart-product{
+    background:#1b1b1b;
+    border-color:#333;
+}
+
+body.dark .cart-product-info h3{
+    color:#fff;
+}
+
+body.dark .cart-product-info strong{
+    color:#C96C4B;
+}
+
+body.dark .remove-cart{
+    background:#fff;
+    color:#777;
+}
+
+body.dark .cart-bottom{
+    background:#1b1b1b;
+    border-top:1px solid #333;
+}
+
+body.dark .cart-total{
+    color:#bbb;
+}
+
+body.dark .cart-total strong{
+    color:#fff;
+}
+
+
+/* Sort By */
+body.dark #sort-products{
+    background:#2a2a2a;
+    color:#fff;
+    border-color:#444;
+}
+
+body.dark #sort-products option{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+
+/* Filter buttons */
+body.dark .filter-btn{
+    background:#2a2a2a;
+    color:#fff;
+    border:1px solid #444;
+}
+
+body.dark .filter-btn.active{
+    background:#C96C4B;
+    color:#fff;
+}
+
+
+/* Category section */
+body.dark .section-title span{
+    background:#2a211d;
+    color:#f2a486;
+}
+
+body.dark .category-card{
+    border-color:#333;
+}
+
+body.dark .category-icon{
+    background:#2a211d;
+}
+
+
+/* Product section */
+body.dark .product-card{
+    border-color:#333;
+}
+
+body.dark .product-image{
+    background:#222;
+}
+
+
+/* Reviews */
+body.dark .review-card{
+    border-color:#333;
+}
+
+body.dark .author-avatar{
+    background:#2a211d;
+    color:#C96C4B;
+}
+
+
+/* Contact */
+body.dark .contact-box{
+    border-color:#333;
+}
+
+body.dark .contact-form{
+    background:#222;
+}
+
+body.dark .contact-content h2,
+body.dark .contact-form h3,
+body.dark .contact-item strong{
+    color:#fff;
+}
+
+body.dark .contact-item p,
+body.dark .contact-content > p{
+    color:#bbb;
+}
+
+
+/* Modal */
+body.dark .modal-content{
+    background:#1b1b1b;
+}
+
+body.dark .modal-image{
+    background:#222;
+}
+
+body.dark .modal-info p{
+    color:#bbb;
+}
+
+body.dark .close-modal{
+    background:#fff;
+    color:#333;
+}
+
+
+/* Mobile menu */
+body.dark .menu-toggle{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+body.dark .nav-icons i{
+    background:#2a2a2a;
+    color:#fff;
+}
+
+
+/* Search */
+body.dark .search-input{
+    background:#2a2a2a;
+    color:#fff;
+    border-color:#444;
+}
+
+body.dark .search-input::placeholder{
+    color:#999;
+}
+
+
+/* Checkout */
+body.dark .checkout-form input{
+    background:#2a2a2a;
+    color:#fff;
+    border-color:#444;
+}
+
+body.dark .checkout-form input::placeholder{
+    color:#999;
+}
+
+body.dark .order-summary{
+    background:#1b1b1b;
+    color:#fff;
+}
+
+body.dark .checkout-product{
+    border-color:#333;
+}
+
+body.dark .checkout-product span{
+    color:#ddd;
+}
+
+
+/* Side menu */
+body.dark .side-menu h2{
+    color:#fff;
+}
+
+body.dark .side-menu a{
+    color:#fff;
+}
+
+body.dark .side-menu a:hover{
+    color:#C96C4B;
+}
