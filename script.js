@@ -637,6 +637,38 @@ if(menuOverlay){
     });
 
 }
+/* CLOSE SIDE MENU WHEN A LINK IS CLICKED */
+
+const sideMenuLinks = sideMenu.querySelectorAll("a");
+
+sideMenuLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        sideMenu.classList.remove("active");
+
+        menuOverlay.classList.remove("active");
+
+    });
+
+});
+/* ==========================
+   CLOSE MENU AFTER LINK CLICK
+========================== */
+
+const sideMenuLinks = document.querySelectorAll(".side-menu a");
+
+sideMenuLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        sideMenu.classList.remove("active");
+
+        menuOverlay.classList.remove("active");
+
+    });
+
+});
 
 /* ==========================
    CATEGORY FILTERS
