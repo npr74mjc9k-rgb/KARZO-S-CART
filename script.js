@@ -637,7 +637,6 @@ if(menuOverlay){
     });
 
 }
-
 /* ==========================
    CLOSE MENU AFTER LINK CLICK
 ========================== */
