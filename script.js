@@ -113,7 +113,7 @@ const closeMenu =
 const menuOverlay =
     document.getElementById("menu-overlay");
 
-    let cart = [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
       /* ==========================
        DISPLAY PRODUCTS
     ========================== */
@@ -428,7 +428,9 @@ alert("Wishlist saved: " + wishlist.length + " item(s)");
 
     function updateCart(){
 
-        cartItems.innerHTML="";
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    cartItems.innerHTML="";
 
         let total=0;
 
