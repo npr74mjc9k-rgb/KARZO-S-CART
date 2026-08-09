@@ -637,6 +637,13 @@ if(menuOverlay){
     });
 
 }
+sideMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        sideMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+    });
+});
+
 /* ==========================
    CLOSE MENU AFTER LINK CLICK
 ========================== */
