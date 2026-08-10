@@ -772,13 +772,15 @@ if(placeOrder){
         const address =
             document.getElementById("customer-address").value.trim();
 
-        if(cart.length===0){
+
+        if(cart.length === 0){
 
             alert("Your cart is empty.");
 
             return;
 
         }
+
 
         if(
             !name ||
@@ -793,17 +795,22 @@ if(placeOrder){
 
         }
 
+
         const orderNumber =
             "KC" +
             Math.floor(
                 100000 +
-                Math.random()*900000
+                Math.random() * 900000
             );
 
-        const orders =
-            JSON.parse(localStorage.getItem("orders")) || [];
 
-        orders.push({
+        const orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
+
+
+        const newOrder = {
 
             id: orderNumber,
 
@@ -813,28 +820,39 @@ if(placeOrder){
 
             items: [...cart],
 
-            total: cart.reduce((sum,item)=>sum+item.price,0)
+            total: cart.reduce(
+                (sum,item) => sum + item.price,
+                0
+            )
 
-        });
+        };
+
+
+        orders.push(newOrder);
+
 
         localStorage.setItem(
             "orders",
             JSON.stringify(orders)
         );
-      localStorage.setItem(
-    "latestOrder",
-    JSON.stringify(orders[orders.length - 1])
-);
 
-     window.location.href = "success.html";   
 
-        cart=[];
+        localStorage.setItem(
+            "latestOrder",
+            JSON.stringify(newOrder)
+        );
 
-        updateCart();
 
-        document
-            .querySelector(".checkout-form")
-            .reset();
+        /* CLEAR CART */
+
+        cart = [];
+
+        localStorage.removeItem("cart");
+
+
+        /* GO TO SUCCESS PAGE */
+
+        window.location.href = "success.html";
 
     });
 
