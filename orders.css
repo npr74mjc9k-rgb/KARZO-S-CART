@@ -120,3 +120,93 @@
     color:#777;
 
 }
+/* ==========================
+   ORDER PRODUCTS
+========================== */
+
+.order-products{
+    margin-top:20px;
+}
+
+.order-product{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.order-product:last-child{
+    border-bottom:none;
+}
+
+.order-product-image{
+    width:65px;
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    background:#f5f1ed;
+
+    flex-shrink:0;
+}
+
+.order-product-info{
+    flex:1;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.order-product-info span{
+    color:#333;
+    font-weight:500;
+}
+
+.order-product-info strong{
+    color:#C96C4B;
+    white-space:nowrap;
+}
+
+
+/* ==========================
+   ORDERS MOBILE
+========================== */
+
+@media(max-width:600px){
+
+    .orders-page{
+        padding:35px 15px;
+    }
+
+    .orders-header{
+        gap:12px;
+        margin-bottom:25px;
+    }
+
+    .orders-header h1{
+        font-size:1.7rem;
+    }
+
+    .order-card{
+        padding:20px;
+    }
+
+    .order-product-image{
+        width:55px;
+        height:55px;
+    }
+
+    .order-product-info{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:4px;
+    }
+
+}

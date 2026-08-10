@@ -29,14 +29,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         order.items.forEach(item => {
 
-            productsHTML += `
-            <div class="order-product">
-                <span>${item.name}</span>
-                <strong>$${item.price.toLocaleString()}</strong>
-            </div>
-            `;
+    productsHTML += `
+    <div class="order-product">
 
-        });
+        <img
+            src="${item.image}"
+            alt="${item.name}"
+            class="order-product-image"
+        >
+
+        <div class="order-product-info">
+
+            <span>${item.name}</span>
+
+            <strong>
+                $${item.price.toLocaleString()}
+            </strong>
+
+        </div>
+
+    </div>
+    `;
+
+});
 
         ordersList.innerHTML += `
         <div class="order-card">
