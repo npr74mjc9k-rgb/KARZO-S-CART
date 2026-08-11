@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span>${item.name}</span>
 
                     <strong>
-                        $${item.price.toLocaleString()}
+                        ₦${item.price.toLocaleString()}
                     </strong>
 
                 </div>
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>Total:</span>
 
                 <strong>
-                    $${order.total.toLocaleString()}
+                    ₦${order.total.toLocaleString()}
                 </strong>
 
             </div>

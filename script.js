@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:1,
         name:"Rolex Submariner",
         category:"Luxury Watches",
-        price:12500,
+        price:12500000,
         rating:"★★★★★",
         image:"rolex.jpg",
         description:"A timeless luxury watch crafted with precision and premium materials."
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:2,
         name:"iPhone 17 Pro",
         category:"Electronics",
-        price:1199,
+        price:1800000,
         rating:"★★★★★",
         image:"iPhone.jpg",
         description:"Apple's newest flagship smartphone with incredible performance."
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:3,
         name:"MacBook Air",
         category:"Electronics",
-        price:1399,
+        price:2100000,
         rating:"★★★★★",
         image:"macbook.jpg",
         description:"Ultra-light laptop built for creators and professionals."
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:4,
         name:"AirPods Pro",
         category:"Electronics",
-        price:249,
+        price:450000,
         rating:"★★★★☆",
         image:"airpods.jpg",
         description:"Premium wireless earbuds with immersive sound."
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:5,
         name:"Nike Air Max",
         category:"Fashion",
-        price:180,
+        price:280000,
         rating:"★★★★☆",
         image:"nike.jpg",
         description:"Comfortable sneakers with iconic Nike style."
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id:6,
         name:"TAG Heuer Carrera",
         category:"Luxury Watches",
-        price:4500,
+        price:4500000,
         rating:"★★★★★",
         image:"tagheuer.jpg",
         description:"Swiss craftsmanship with timeless elegance."
@@ -160,7 +160,7 @@ const menuOverlay =
 
                     <div class="product-price">
 
-                        $${product.price.toLocaleString()}
+                        ₦${product.price.toLocaleString()}
 
                     </div>
 
@@ -203,7 +203,7 @@ const menuOverlay =
         modalRating.textContent = product.rating;
 
         modalPrice.textContent =
-            "$" + product.price.toLocaleString();
+            "₦" + product.price.toLocaleString();
 
         modalDescription.textContent =
             product.description;
@@ -462,7 +462,7 @@ alert("Wishlist saved: " + wishlist.length + " item(s)");
 
                         <strong>
 
-                            $${item.price.toLocaleString()}
+                            ₦${item.price.toLocaleString()}
 
                         </strong>
 
@@ -483,7 +483,7 @@ alert("Wishlist saved: " + wishlist.length + " item(s)");
         });
 
         cartTotal.textContent =
-            "$"+total.toLocaleString();
+            "₦"+total.toLocaleString();
       /* ==========================
    UPDATE CHECKOUT
 ========================== */
@@ -510,7 +510,7 @@ if(checkoutItems){
 
                     <strong>
 
-                        $${item.price.toLocaleString()}
+                        ₦${item.price.toLocaleString()}
 
                     </strong>
 
@@ -527,7 +527,7 @@ if(checkoutItems){
 if(checkoutTotal){
 
     checkoutTotal.textContent =
-        "$"+total.toLocaleString();
+        "₦"+total.toLocaleString();
 
 }
 
