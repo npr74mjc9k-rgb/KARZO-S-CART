@@ -73,9 +73,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 Total:
                 <strong>$${order.total.toLocaleString()}</strong>
             </div>
+            <button class="view-order-btn" data-order-id="${order.id}">
+    View Order Details
+</button>
 
         </div>
         `;
+
+    });
+
+});
+/* ==========================
+   VIEW ORDER DETAILS
+========================== */
+
+const viewOrderButtons =
+    document.querySelectorAll(".view-order-btn");
+
+viewOrderButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const orderId =
+            button.dataset.orderId;
+
+        const selectedOrder =
+            orders.find(order => order.id === orderId);
+
+        if(!selectedOrder) return;
+
+        localStorage.setItem(
+            "selectedOrder",
+            JSON.stringify(selectedOrder)
+        );
+
+        window.location.href = "order-details.html";
 
     });
 
