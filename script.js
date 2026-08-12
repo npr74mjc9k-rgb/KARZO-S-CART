@@ -833,7 +833,7 @@ if(placeOrder){
         /* OPEN PAYSTACK */
 
         const paystack =
-            new Paystack();
+    new PaystackPop();
 
 
         paystack.newTransaction({
