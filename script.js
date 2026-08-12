@@ -753,12 +753,12 @@ if(sortProducts){
 
 }
   /* ==========================
-   PLACE ORDER
+   PLACE ORDER — PAYSTACK
 ========================== */
 
 if(placeOrder){
 
-    placeOrder.addEventListener("click",()=>{
+    placeOrder.addEventListener("click", () => {
 
         const name =
             document.getElementById("customer-name").value.trim();
@@ -773,6 +773,8 @@ if(placeOrder){
             document.getElementById("customer-address").value.trim();
 
 
+        /* CHECK CART */
+
         if(cart.length === 0){
 
             alert("Your cart is empty.");
@@ -781,6 +783,8 @@ if(placeOrder){
 
         }
 
+
+        /* CHECK CUSTOMER INFORMATION */
 
         if(
             !name ||
@@ -796,6 +800,28 @@ if(placeOrder){
         }
 
 
+        /* CALCULATE TOTAL */
+
+        const total =
+            cart.reduce(
+                (sum, item) => sum + item.price,
+                0
+            );
+
+
+        /*
+           Paystack uses the smallest
+           currency unit.
+
+           ₦1 = 100 Kobo
+        */
+
+        const amountInKobo =
+            total * 100;
+
+
+        /* GENERATE ORDER NUMBER */
+
         const orderNumber =
             "KC" +
             Math.floor(
@@ -804,73 +830,145 @@ if(placeOrder){
             );
 
 
-        const orders =
-            JSON.parse(
-                localStorage.getItem("orders")
-            ) || [];
+        /* OPEN PAYSTACK */
+
+        const paystack =
+            new Paystack();
 
 
-        const newOrder = {
+        paystack.newTransaction({
 
-            id: orderNumber,
+            key: "pk_test_488ff59df0a36af01cc88bc63d52f138f18479e2",
 
-            date: new Date().toLocaleDateString(),
+            email: email,
 
-            status: "Processing",
+            amount: amountInKobo,
 
-            items: [...cart],
+            currency: "NGN",
 
-            total: cart.reduce(
-                (sum,item) => sum + item.price,
-                0
-            )
+            reference: orderNumber,
 
-        };
+            firstName: name,
 
+            phone: phone,
 
-        orders.push(newOrder);
+            metadata: {
 
+                customer_name: name,
 
-        localStorage.setItem(
-            "orders",
-            JSON.stringify(orders)
-        );
+                phone: phone,
 
+                address: address,
 
-        localStorage.setItem(
-            "latestOrder",
-            JSON.stringify(newOrder)
-        );
+                products: cart.map(item => item.name)
+
+            },
 
 
-        /* CLEAR CART */
+            onSuccess: (transaction) => {
 
-        cart = [];
+                console.log(
+                    "Payment successful:",
+                    transaction
+                );
 
-        localStorage.removeItem("cart");
+
+                /* GET EXISTING ORDERS */
+
+                const orders =
+                    JSON.parse(
+                        localStorage.getItem("orders")
+                    ) || [];
 
 
-        /* GO TO SUCCESS PAGE */
+                /* CREATE ORDER */
 
-        window.location.href = "success.html";
+                const newOrder = {
 
-    });
+                    id: orderNumber,
 
-}
-  const checkoutBtn =
-    document.getElementById("checkout-btn");
+                    paymentReference:
+                        transaction.reference,
 
-if(checkoutBtn){
+                    date:
+                        new Date().toLocaleDateString(),
 
-    checkoutBtn.addEventListener("click",()=>{
+                    status: "Paid",
 
-        closeCartPanel();
+                    customer: {
 
-        document
-            .getElementById("checkout")
-            .scrollIntoView({
-                behavior:"smooth"
-            });
+                        name: name,
+
+                        email: email,
+
+                        phone: phone,
+
+                        address: address
+
+                    },
+
+                    items: [...cart],
+
+                    total: total
+
+                };
+
+
+                /* SAVE ORDER */
+
+                orders.push(newOrder);
+
+
+                localStorage.setItem(
+                    "orders",
+                    JSON.stringify(orders)
+                );
+
+
+                localStorage.setItem(
+                    "latestOrder",
+                    JSON.stringify(newOrder)
+                );
+
+
+                /* CLEAR CART */
+
+                cart = [];
+
+                localStorage.removeItem("cart");
+
+
+                /* GO TO SUCCESS PAGE */
+
+                window.location.href =
+                    "success.html";
+
+            },
+
+
+            onCancel: () => {
+
+                alert(
+                    "Payment was cancelled."
+                );
+
+            },
+
+
+            onError: (error) => {
+
+                console.error(
+                    "Paystack error:",
+                    error
+                );
+
+                alert(
+                    "Payment could not be completed. Please try again."
+                );
+
+            }
+
+        });
 
     });
 
