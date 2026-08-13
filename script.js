@@ -1061,3 +1061,214 @@ if(navHeart){
     updateCart();
 
 });
+/* ==========================
+
+   BANK TRANSFER PAYMENT
+
+========================== */
+
+const bankTransferBtn =
+
+    document.getElementById("bank-transfer-btn");
+
+const copyAccountBtn =
+
+    document.getElementById("copy-account");
+
+/* COPY ACCOUNT NUMBER */
+
+if(copyAccountBtn){
+
+    copyAccountBtn.addEventListener("click", async () => {
+
+        const accountNumber =
+
+            document
+
+                .getElementById("account-number")
+
+                .textContent
+
+                .trim();
+
+        try{
+
+            await navigator.clipboard.writeText(accountNumber);
+
+            copyAccountBtn.textContent = "Copied!";
+
+            setTimeout(() => {
+
+                copyAccountBtn.textContent = "Copy";
+
+            }, 2000);
+
+        }catch(error){
+
+            alert("Unable to copy account number.");
+
+        }
+
+    });
+
+}
+
+/* I'VE MADE THE TRANSFER */
+
+if(bankTransferBtn){
+
+    bankTransferBtn.addEventListener("click", () => {
+
+        /* CHECK CART */
+
+        const cart =
+
+            JSON.parse(localStorage.getItem("cart")) || [];
+
+        if(cart.length === 0){
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+        /* CUSTOMER INFORMATION */
+
+        const name =
+
+            document.getElementById("customer-name").value.trim();
+
+        const email =
+
+            document.getElementById("customer-email").value.trim();
+
+        const phone =
+
+            document.getElementById("customer-phone").value.trim();
+
+        const address =
+
+            document.getElementById("customer-address").value.trim();
+
+        if(!name || !email || !phone || !address){
+
+            alert(
+
+                "Please complete your shipping information first."
+
+            );
+
+            return;
+
+        }
+
+        /* CALCULATE TOTAL */
+
+        const total =
+
+            cart.reduce(
+
+                (sum, item) => sum + item.price,
+
+                0
+
+            );
+
+        /* CREATE ORDER NUMBER */
+
+        const orderNumber =
+
+            "KC" +
+
+            Math.floor(
+
+                100000 +
+
+                Math.random() * 900000
+
+            );
+
+        /* GET EXISTING ORDERS */
+
+        const orders =
+
+            JSON.parse(
+
+                localStorage.getItem("orders")
+
+            ) || [];
+
+        /* CREATE PENDING ORDER */
+
+        const newOrder = {
+
+            id: orderNumber,
+
+            paymentMethod:
+
+                "Bank Transfer",
+
+            paymentStatus:
+
+                "Pending Verification",
+
+            date:
+
+                new Date().toLocaleDateString(),
+
+            status:
+
+                "Awaiting Payment Verification",
+
+            customer: {
+
+                name: name,
+
+                email: email,
+
+                phone: phone,
+
+                address: address
+
+            },
+
+            items: [...cart],
+
+            total: total
+
+        };
+
+        /* SAVE ORDER */
+
+        orders.push(newOrder);
+
+        localStorage.setItem(
+
+            "orders",
+
+            JSON.stringify(orders)
+
+        );
+
+        localStorage.setItem(
+
+            "latestOrder",
+
+            JSON.stringify(newOrder)
+
+        );
+
+        /* CLEAR CART */
+
+        localStorage.removeItem("cart");
+
+        /* GO TO SUCCESS PAGE */
+
+        window.location.href =
+
+            "success.html";
+
+    });
+
+}
