@@ -827,7 +827,7 @@ if(placeOrder){
 
         /* OPEN PAYSTACK */
 
-        const paystack = new Paystack();
+        const paystack = new PaystackPop();
 
 
         paystack.newTransaction({
