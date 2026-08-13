@@ -1004,6 +1004,35 @@ if(darkToggle){
     });
 
 }
+/* ==========================
+   PROCEED TO CHECKOUT
+========================== */
+
+const checkoutBtn =
+    document.getElementById("checkout-btn");
+
+if(checkoutBtn){
+
+    checkoutBtn.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        closeCartPanel();
+
+        const checkoutSection =
+            document.getElementById("checkout");
+
+        if(checkoutSection){
+
+            checkoutSection.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+}
   /* ==========================
    NAVBAR WISHLIST
 ========================== */
