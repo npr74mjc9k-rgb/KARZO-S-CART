@@ -658,24 +658,6 @@ if(sideMenu){
 }
 
 /* ==========================
-   CLOSE MENU AFTER LINK CLICK
-========================== */
-
-const sideMenuLinks = document.querySelectorAll(".side-menu a");
-
-sideMenuLinks.forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        sideMenu.classList.remove("active");
-
-        menuOverlay.classList.remove("active");
-
-    });
-
-});
-
-/* ==========================
    CATEGORY FILTERS
 ========================== */
 
