@@ -3135,51 +3135,68 @@ body.dark .side-menu a:hover{
 #bank-transfer-btn:active {
     transform: scale(0.98);
 }
-/* ==========================
-   BANK TRANSFER — DARK MODE
-========================== */
+/* =========================================
+   FORCE BANK TRANSFER DARK MODE STYLES
+========================================= */
 
 body.dark .bank-transfer-option {
-    border-top-color: #3a3a3a;
+    background: transparent !important;
+    color: #ffffff !important;
+    border-top: 1px solid #3a3a3a !important;
 }
 
 body.dark .bank-transfer-option h3 {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 body.dark .bank-transfer-note {
-    color: #bdbdbd;
+    color: #bdbdbd !important;
 }
 
+/* BANK DETAILS CARD */
+
 body.dark .bank-details {
-    background: #242424;
-    border-color: #3a3a3a;
+    background: #242424 !important;
+    border: 1px solid #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+body.dark .bank-details > div {
+    color: #ffffff !important;
 }
 
 body.dark .bank-details span {
-    color: #999999;
+    color: #9f9f9f !important;
 }
 
 body.dark .bank-details strong {
-    color: #ffffff;
+    color: #ffffff !important;
 }
+
+/* ACCOUNT NUMBER */
+
+body.dark #account-number {
+    color: #ffffff !important;
+    text-decoration-color: #ffffff !important;
+}
+
+/* COPY BUTTON */
 
 body.dark #copy-account {
-    background: #333333;
-    color: #ffffff;
+    background: #383838 !important;
+    color: #ffffff !important;
+    border: none !important;
 }
 
-body.dark #copy-account:hover {
-    background: #444444;
-}
+/* TRANSFER BUTTON */
 
 body.dark #bank-transfer-btn {
-    background: transparent;
-    border-color: #cc704b;
-    color: #cc704b;
+    background: transparent !important;
+    border: 1px solid #cc704b !important;
+    color: #cc704b !important;
 }
 
 body.dark #bank-transfer-btn:hover {
-    background: #cc704b;
-    color: #ffffff;
+    background: #cc704b !important;
+    color: #ffffff !important;
 }
