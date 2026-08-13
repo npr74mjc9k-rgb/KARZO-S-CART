@@ -751,7 +751,9 @@ if(sortProducts){
 
 if(placeOrder){
 
-    placeOrder.addEventListener("click", () => {
+    placeOrder.addEventListener("click", (event) => {
+
+    event.preventDefault();
 
         const name =
             document.getElementById("customer-name").value.trim();
