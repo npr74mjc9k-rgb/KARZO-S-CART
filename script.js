@@ -1020,15 +1020,6 @@ if(navHeart){
     });
 
 }
-    /* ==========================
-       START APP
-    ========================== */
-
-    displayProducts(products);
-
-    updateCart();
-
-});
 /* ==========================
    BANK TRANSFER PAYMENT
 ========================== */
@@ -1047,7 +1038,10 @@ if(copyAccountBtn){
     copyAccountBtn.addEventListener("click", async () => {
 
         const accountNumber =
-            document.getElementById("account-number").textContent.trim();
+            document
+            .getElementById("account-number")
+            .textContent
+            .trim();
 
         try{
 
@@ -1063,9 +1057,7 @@ if(copyAccountBtn){
 
         }catch(error){
 
-            alert(
-                "Unable to copy account number."
-            );
+            alert("Unable to copy account number.");
 
         }
 
@@ -1080,8 +1072,6 @@ if(bankTransferBtn){
 
     bankTransferBtn.addEventListener("click", () => {
 
-        /* CHECK CART */
-
         if(cart.length === 0){
 
             alert("Your cart is empty.");
@@ -1091,27 +1081,32 @@ if(bankTransferBtn){
         }
 
 
-        /* CUSTOMER INFORMATION */
-
         const name =
-            document.getElementById("customer-name").value.trim();
+            document
+            .getElementById("customer-name")
+            .value
+            .trim();
 
         const email =
-            document.getElementById("customer-email").value.trim();
+            document
+            .getElementById("customer-email")
+            .value
+            .trim();
 
         const phone =
-            document.getElementById("customer-phone").value.trim();
+            document
+            .getElementById("customer-phone")
+            .value
+            .trim();
 
         const address =
-            document.getElementById("customer-address").value.trim();
+            document
+            .getElementById("customer-address")
+            .value
+            .trim();
 
 
-        if(
-            !name ||
-            !email ||
-            !phone ||
-            !address
-        ){
+        if(!name || !email || !phone || !address){
 
             alert(
                 "Please complete your shipping information first."
@@ -1122,16 +1117,12 @@ if(bankTransferBtn){
         }
 
 
-        /* CALCULATE TOTAL */
-
         const total =
             cart.reduce(
                 (sum, item) => sum + item.price,
                 0
             );
 
-
-        /* CREATE ORDER NUMBER */
 
         const orderNumber =
             "KC" +
@@ -1141,25 +1132,19 @@ if(bankTransferBtn){
             );
 
 
-        /* GET EXISTING ORDERS */
-
         const orders =
             JSON.parse(
                 localStorage.getItem("orders")
             ) || [];
 
 
-        /* CREATE PENDING ORDER */
-
         const newOrder = {
 
             id: orderNumber,
 
-            paymentMethod:
-                "Bank Transfer",
+            paymentMethod: "Bank Transfer",
 
-            paymentStatus:
-                "Pending Verification",
+            paymentStatus: "Pending Verification",
 
             date:
                 new Date().toLocaleDateString(),
@@ -1186,8 +1171,6 @@ if(bankTransferBtn){
         };
 
 
-        /* SAVE ORDER */
-
         orders.push(newOrder);
 
 
@@ -1203,14 +1186,10 @@ if(bankTransferBtn){
         );
 
 
-        /* CLEAR CART */
-
         cart = [];
 
         localStorage.removeItem("cart");
 
-
-        /* GO TO SUCCESS PAGE */
 
         window.location.href =
             "success.html";
@@ -1218,3 +1197,12 @@ if(bankTransferBtn){
     });
 
 }
+    /* ==========================
+       START APP
+    ========================== */
+
+    displayProducts(products);
+
+    updateCart();
+
+});
