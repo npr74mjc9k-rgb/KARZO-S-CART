@@ -3135,3 +3135,51 @@ body.dark .side-menu a:hover{
 #bank-transfer-btn:active {
     transform: scale(0.98);
 }
+/* ==========================
+   BANK TRANSFER — DARK MODE
+========================== */
+
+body.dark .bank-transfer-option {
+    border-top-color: #3a3a3a;
+}
+
+body.dark .bank-transfer-option h3 {
+    color: #ffffff;
+}
+
+body.dark .bank-transfer-note {
+    color: #bdbdbd;
+}
+
+body.dark .bank-details {
+    background: #242424;
+    border-color: #3a3a3a;
+}
+
+body.dark .bank-details span {
+    color: #999999;
+}
+
+body.dark .bank-details strong {
+    color: #ffffff;
+}
+
+body.dark #copy-account {
+    background: #333333;
+    color: #ffffff;
+}
+
+body.dark #copy-account:hover {
+    background: #444444;
+}
+
+body.dark #bank-transfer-btn {
+    background: transparent;
+    border-color: #cc704b;
+    color: #cc704b;
+}
+
+body.dark #bank-transfer-btn:hover {
+    background: #cc704b;
+    color: #ffffff;
+}
