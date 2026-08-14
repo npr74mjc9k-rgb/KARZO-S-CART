@@ -1,3 +1,71 @@
+/* ==========================
+   SUPABASE
+========================== */
+
+const SUPABASE_URL = "https://efqfljpruddxafhyzvod.supabase.co/rest/v1/";
+
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_idVrzmCyqarPHKefeZLg4Q_ntaeSLz6";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+/* ==========================
+   SAVE ORDER TO SUPABASE
+========================== */
+
+async function saveOrderToSupabase(order) {
+
+    const { data, error } = await supabaseClient
+        .from("orders")
+        .insert([{
+            order_number: order.id,
+
+            customer_name: order.customer.name,
+
+            customer_email: order.customer.email,
+
+            customer_phone: order.customer.phone,
+
+            customer_address: order.customer.address,
+
+            items: order.items,
+
+            total: order.total,
+
+            payment_method:
+                order.paymentMethod || "Paystack",
+
+            payment_status:
+                order.paymentStatus || "Paid",
+
+            order_status:
+                order.orderStatus || order.status || "Processing",
+
+            paystack_reference:
+                order.paymentReference || null
+        }])
+        .select()
+        .single();
+
+    if (error) {
+
+        console.error(
+            "Supabase order error:",
+            error
+        );
+
+        throw error;
+
+    }
+
+    console.log(
+        "Order saved to Supabase:",
+        data
+    );
+
+    return data;
+}
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================
