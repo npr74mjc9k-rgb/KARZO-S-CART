@@ -5,6 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================
+       DARK MODE
+    ========================== */
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark");
+
+    }
+
+
+    /* ==========================
        GET ORDERS
     ========================== */
 
@@ -65,9 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const paymentStatus =
             order.paymentStatus ||
-            (order.status === "Paid"
-                ? "Confirmed"
-                : "Pending");
+            (
+                order.status === "Paid"
+                    ? "Confirmed"
+                    : "Pending"
+            );
 
 
         const statusClass =
@@ -78,25 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 : "confirmed";
 
 
+        /* ==========================
+           PRODUCTS
+        ========================== */
+
         const itemsHTML =
             (order.items || [])
             .map(item => `
 
                 <div class="order-item">
 
-                    <span>
-                        ${item.name}
-                    </span>
+                    <div class="order-item-name">
 
-                    <strong>
+                        ${item.name}
+
+                    </div>
+
+                    <div class="order-item-price">
+
                         ₦${Number(item.price).toLocaleString()}
-                    </strong>
+
+                    </div>
 
                 </div>
 
             `)
             .join("");
 
+
+        /* ==========================
+           ORDER CARD
+        ========================== */
 
         ordersList.innerHTML += `
 
@@ -107,17 +135,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div>
 
                         <span class="order-label">
+
                             ORDER NUMBER
+
                         </span>
 
                         <h2>
-                            ${order.id}
+
+                            ${order.id || "—"}
+
                         </h2>
+
+                        <span class="order-date">
+
+                            ${order.date || "—"}
+
+                        </span>
 
                     </div>
 
 
                     <span class="order-status ${statusClass}">
+
+                        <i class="fa-solid fa-circle"></i>
 
                         ${
                             statusClass === "pending"
@@ -134,21 +174,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div>
 
-                        <small>Date</small>
+                        <small>
+
+                            Payment Method
+
+                        </small>
 
                         <strong>
-                            ${order.date || "—"}
-                        </strong>
 
-                    </div>
-
-
-                    <div>
-
-                        <small>Payment Method</small>
-
-                        <strong>
                             ${paymentMethod}
+
                         </strong>
 
                     </div>
@@ -156,10 +191,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div>
 
-                        <small>Payment Status</small>
+                        <small>
+
+                            Payment Status
+
+                        </small>
 
                         <strong>
+
                             ${paymentStatus}
+
                         </strong>
 
                     </div>
@@ -170,7 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="order-products">
 
                     <h3>
+
                         Products
+
                     </h3>
 
                     ${itemsHTML}
@@ -180,12 +223,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="order-bottom">
 
-                    <span>
-                        Order Total
-                    </span>
+                    <div>
 
-                    <strong>
-                        ₦${Number(order.total).toLocaleString()}
+                        <span class="order-total-label">
+
+                            Order Total
+
+                        </span>
+
+                    </div>
+
+                    <strong class="order-total">
+
+                        ₦${Number(order.total || 0).toLocaleString()}
+
                     </strong>
 
                 </div>
