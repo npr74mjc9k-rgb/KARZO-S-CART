@@ -927,87 +927,163 @@ if(placeOrder){
             },
 
 
-            onSuccess: (transaction) => {
+            onSuccess: async (transaction) => {
 
-                console.log(
-                    "Payment successful:",
-                    transaction
-                );
+    console.log(
 
+        "Payment successful:",
 
-                /* GET EXISTING ORDERS */
+        transaction
 
-                const orders =
-                    JSON.parse(
-                        localStorage.getItem("orders")
-                    ) || [];
+    );
 
+    /* ==========================
 
-                /* CREATE ORDER */
+       GET EXISTING ORDERS
 
-                const newOrder = {
+    ========================== */
 
-                    id: orderNumber,
+    const orders =
 
-                    paymentReference:
-                        transaction.reference,
+        JSON.parse(
 
-                    date:
-                        new Date().toLocaleDateString(),
+            localStorage.getItem("orders")
 
-                    status: "Paid",
+        ) || [];
 
-                    customer: {
+    /* ==========================
 
-                        name: name,
+       CREATE ORDER
 
-                        email: email,
+    ========================== */
 
-                        phone: phone,
+    const newOrder = {
 
-                        address: address
+        id: orderNumber,
 
-                    },
+        paymentReference:
 
-                    items: [...cart],
+            transaction.reference,
 
-                    total: total
+        paymentMethod:
 
-                };
+            "Paystack",
 
+        paymentStatus:
 
-                /* SAVE ORDER */
+            "Paid",
 
-                orders.push(newOrder);
+        orderStatus:
 
+            "Processing",
 
-                localStorage.setItem(
-                    "orders",
-                    JSON.stringify(orders)
-                );
+        date:
 
+            new Date().toLocaleDateString(),
 
-                localStorage.setItem(
-                    "latestOrder",
-                    JSON.stringify(newOrder)
-                );
+        status:
 
+            "Paid",
 
-                /* CLEAR CART */
+        customer: {
 
-                cart = [];
+            name: name,
 
-                localStorage.removeItem("cart");
+            email: email,
 
+            phone: phone,
 
-                /* GO TO SUCCESS PAGE */
+            address: address
 
-                window.location.href =
-                    "success.html";
+        },
 
-            },
+        items: [...cart],
 
+        total: total
 
+    };
+
+    /* ==========================
+
+       SAVE ORDER LOCALLY
+
+    ========================== */
+
+    orders.push(newOrder);
+
+    localStorage.setItem(
+
+        "orders",
+
+        JSON.stringify(orders)
+
+    );
+
+    localStorage.setItem(
+
+        "latestOrder",
+
+        JSON.stringify(newOrder)
+
+    );
+
+    /* ==========================
+
+       SAVE ORDER TO SUPABASE
+
+    ========================== */
+
+    try {
+
+        await saveOrderToSupabase(newOrder);
+
+        console.log(
+
+            "Order successfully saved to Supabase."
+
+        );
+
+    } catch (error) {
+
+        console.error(
+
+            "Could not save order to Supabase:",
+
+            error
+
+        );
+
+        alert(
+
+            "Payment succeeded, but we couldn't save your order online. Please contact support."
+
+        );
+
+        return;
+
+    }
+
+    /* ==========================
+
+       CLEAR CART
+
+    ========================== */
+
+    cart = [];
+
+    localStorage.removeItem("cart");
+
+    /* ==========================
+
+       GO TO SUCCESS PAGE
+
+    ========================== */
+
+    window.location.href =
+
+        "success.html";
+
+},
             onCancel: () => {
 
                 alert(
@@ -1130,33 +1206,28 @@ if(navHeart){
 
 });
 /* ==========================
-
    BANK TRANSFER PAYMENT
-
 ========================== */
 
 const bankTransferBtn =
-
     document.getElementById("bank-transfer-btn");
 
 const copyAccountBtn =
-
     document.getElementById("copy-account");
 
-/* COPY ACCOUNT NUMBER */
+
+/* ==========================
+   COPY ACCOUNT NUMBER
+========================== */
 
 if(copyAccountBtn){
 
     copyAccountBtn.addEventListener("click", async () => {
 
         const accountNumber =
-
             document
-
                 .getElementById("account-number")
-
                 .textContent
-
                 .trim();
 
         try{
@@ -1173,7 +1244,11 @@ if(copyAccountBtn){
 
         }catch(error){
 
-            alert("Unable to copy account number.");
+            console.error(error);
+
+            alert(
+                "Unable to copy account number."
+            );
 
         }
 
@@ -1181,19 +1256,26 @@ if(copyAccountBtn){
 
 }
 
-/* I'VE MADE THE TRANSFER */
+
+/* ==========================
+   I'VE MADE THE TRANSFER
+========================== */
 
 if(bankTransferBtn){
 
-    bankTransferBtn.addEventListener("click", () => {
+    bankTransferBtn.addEventListener("click", async () => {
+
+        /* GET CART */
+
+        const currentCart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
 
         /* CHECK CART */
 
-        const cart =
-
-            JSON.parse(localStorage.getItem("cart")) || [];
-
-        if(cart.length === 0){
+        if(currentCart.length === 0){
 
             alert("Your cart is empty.");
 
@@ -1201,93 +1283,94 @@ if(bankTransferBtn){
 
         }
 
+
         /* CUSTOMER INFORMATION */
 
         const name =
-
-            document.getElementById("customer-name").value.trim();
+            document
+                .getElementById("customer-name")
+                .value
+                .trim();
 
         const email =
-
-            document.getElementById("customer-email").value.trim();
+            document
+                .getElementById("customer-email")
+                .value
+                .trim();
 
         const phone =
-
-            document.getElementById("customer-phone").value.trim();
+            document
+                .getElementById("customer-phone")
+                .value
+                .trim();
 
         const address =
+            document
+                .getElementById("customer-address")
+                .value
+                .trim();
 
-            document.getElementById("customer-address").value.trim();
 
-        if(!name || !email || !phone || !address){
+        /* CHECK CUSTOMER INFORMATION */
+
+        if(
+            !name ||
+            !email ||
+            !phone ||
+            !address
+        ){
 
             alert(
-
                 "Please complete your shipping information first."
-
             );
 
             return;
 
         }
 
+
         /* CALCULATE TOTAL */
 
         const total =
-
-            cart.reduce(
-
-                (sum, item) => sum + item.price,
-
+            currentCart.reduce(
+                (sum, item) =>
+                    sum + Number(item.price),
                 0
-
             );
 
-        /* CREATE ORDER NUMBER */
+
+        /* GENERATE ORDER NUMBER */
 
         const orderNumber =
-
             "KC" +
-
             Math.floor(
-
                 100000 +
-
                 Math.random() * 900000
-
             );
 
-        /* GET EXISTING ORDERS */
 
-        const orders =
-
-            JSON.parse(
-
-                localStorage.getItem("orders")
-
-            ) || [];
-
-        /* CREATE PENDING ORDER */
+        /* CREATE ORDER */
 
         const newOrder = {
 
             id: orderNumber,
 
-            paymentMethod:
+            paymentReference: null,
 
+            paymentMethod:
                 "Bank Transfer",
 
             paymentStatus:
-
                 "Pending Verification",
 
-            date:
+            orderStatus:
+                "Awaiting Payment Verification",
 
+            date:
                 new Date().toLocaleDateString(),
 
             status:
-
-                "Awaiting Payment Verification",
+                "Pending",
 
             customer: {
 
@@ -1301,40 +1384,92 @@ if(bankTransferBtn){
 
             },
 
-            items: [...cart],
+            items: [...currentCart],
 
             total: total
 
         };
 
-        /* SAVE ORDER */
+
+        /* ==========================
+           SAVE LOCALLY
+        ========================== */
+
+        const orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
 
         orders.push(newOrder);
 
         localStorage.setItem(
-
             "orders",
-
             JSON.stringify(orders)
-
         );
 
         localStorage.setItem(
-
             "latestOrder",
-
             JSON.stringify(newOrder)
-
         );
 
-        /* CLEAR CART */
+
+        /* ==========================
+           SAVE TO SUPABASE
+        ========================== */
+
+        try{
+
+            bankTransferBtn.disabled = true;
+
+            bankTransferBtn.textContent =
+                "Saving Order...";
+
+
+            await saveOrderToSupabase(
+                newOrder
+            );
+
+
+            console.log(
+                "Bank transfer order saved to Supabase."
+            );
+
+
+        }catch(error){
+
+            console.error(
+                "Supabase bank transfer error:",
+                error
+            );
+
+
+            bankTransferBtn.disabled = false;
+
+            bankTransferBtn.textContent =
+                "I've Made the Transfer";
+
+
+            alert(
+                "We couldn't save your order online. Please try again."
+            );
+
+            return;
+
+        }
+
+
+        /* ==========================
+           CLEAR CART
+        ========================== */
 
         localStorage.removeItem("cart");
 
-        /* GO TO SUCCESS PAGE */
+
+        /* ==========================
+           GO TO SUCCESS PAGE
+        ========================== */
 
         window.location.href =
-
             "success.html";
 
     });
