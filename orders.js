@@ -3,153 +3,196 @@ document.addEventListener("DOMContentLoaded", () => {
     const ordersList =
         document.getElementById("orders-list");
 
-    if (!ordersList) return;
+
+    /* ==========================
+       GET ORDERS
+    ========================== */
 
     const orders =
-        JSON.parse(localStorage.getItem("orders")) || [];
+        JSON.parse(
+            localStorage.getItem("orders")
+        ) || [];
+
+
+    /* ==========================
+       EMPTY ORDERS
+    ========================== */
 
     if (orders.length === 0) {
 
         ordersList.innerHTML = `
-        <div class="empty-orders">
 
-            <i class="fa-solid fa-box-open"></i>
+            <div class="empty-orders">
 
-            <h2>No Orders Yet</h2>
+                <div class="empty-icon">
 
-            <p>Your completed orders will appear here.</p>
+                    <i class="fa-solid fa-box-open"></i>
 
-        </div>
+                </div>
+
+                <h2>No Orders Yet</h2>
+
+                <p>
+                    You haven't placed any orders yet.
+                    Start shopping to see your orders here.
+                </p>
+
+                <a href="index.html">
+                    Start Shopping
+                </a>
+
+            </div>
+
         `;
 
         return;
+
     }
+
+
+    /* ==========================
+       DISPLAY ORDERS
+    ========================== */
 
     ordersList.innerHTML = "";
 
-    orders.forEach(order => {
 
-        let productsHTML = "";
+    [...orders].reverse().forEach(order => {
 
-        order.items.forEach(item => {
+        const paymentMethod =
+            order.paymentMethod || "Paystack";
 
-            productsHTML += `
-            <div class="order-product">
 
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                    class="order-product-image"
-                >
+        const paymentStatus =
+            order.paymentStatus ||
+            (order.status === "Paid"
+                ? "Confirmed"
+                : "Pending");
 
-                <div class="order-product-info">
 
-                    <span>${item.name}</span>
+        const statusClass =
+            paymentStatus
+                .toLowerCase()
+                .includes("pending")
+                ? "pending"
+                : "confirmed";
+
+
+        const itemsHTML =
+            (order.items || [])
+            .map(item => `
+
+                <div class="order-item">
+
+                    <span>
+                        ${item.name}
+                    </span>
 
                     <strong>
-                        ₦${item.price.toLocaleString()}
+                        ₦${Number(item.price).toLocaleString()}
                     </strong>
 
                 </div>
 
-            </div>
-            `;
+            `)
+            .join("");
 
-        });
 
         ordersList.innerHTML += `
 
-        <div class="order-card">
+            <article class="order-card">
 
-            <div class="order-top">
+                <div class="order-top">
 
-                <h3>
-                    Order #${order.id}
-                </h3>
+                    <div>
 
-                <span class="order-status">
-                    ${order.status}
-                </span>
+                        <span class="order-label">
+                            ORDER NUMBER
+                        </span>
 
-            </div>
+                        <h2>
+                            ${order.id}
+                        </h2>
 
-            <p>
-                <strong>Date:</strong>
-                ${order.date}
-            </p>
+                    </div>
 
-            <p>
-                <strong>Items:</strong>
-                ${order.items.length}
-            </p>
 
-            <div class="order-products">
+                    <span class="order-status ${statusClass}">
 
-                ${productsHTML}
+                        ${
+                            statusClass === "pending"
+                            ? "Pending Verification"
+                            : "Confirmed"
+                        }
 
-            </div>
+                    </span>
 
-            <div class="order-total">
+                </div>
 
-                <span>Total:</span>
 
-                <strong>
-                    ₦${order.total.toLocaleString()}
-                </strong>
+                <div class="order-details">
 
-            </div>
+                    <div>
 
-            <button
-                class="view-order-btn"
-                data-order-id="${order.id}">
+                        <small>Date</small>
 
-                View Order Details
+                        <strong>
+                            ${order.date || "—"}
+                        </strong>
 
-            </button>
+                    </div>
 
-        </div>
+
+                    <div>
+
+                        <small>Payment Method</small>
+
+                        <strong>
+                            ${paymentMethod}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>Payment Status</small>
+
+                        <strong>
+                            ${paymentStatus}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-products">
+
+                    <h3>
+                        Products
+                    </h3>
+
+                    ${itemsHTML}
+
+                </div>
+
+
+                <div class="order-bottom">
+
+                    <span>
+                        Order Total
+                    </span>
+
+                    <strong>
+                        ₦${Number(order.total).toLocaleString()}
+                    </strong>
+
+                </div>
+
+            </article>
 
         `;
-
-    });
-
-
-    /* ==========================
-       VIEW ORDER DETAILS
-    ========================== */
-
-    const viewOrderButtons =
-        document.querySelectorAll(".view-order-btn");
-
-    viewOrderButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const orderId =
-                button.dataset.orderId;
-
-            const selectedOrder =
-                orders.find(order =>
-                    order.id === orderId
-                );
-
-            if (!selectedOrder) {
-
-                alert("Order not found.");
-
-                return;
-
-            }
-
-            localStorage.setItem(
-                "selectedOrder",
-                JSON.stringify(selectedOrder)
-            );
-
-            window.location.href =
-                "order-details.html";
-
-        });
 
     });
 
