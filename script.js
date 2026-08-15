@@ -2,7 +2,7 @@
    SUPABASE
 ========================== */
 
-const SUPABASE_URL = "https://efqfljpruddxafhyzvod.supabase.co;
+const SUPABASE_URL = "https://efqfljpruddxafhyzvod.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_idVrzmCyqarPHKefeZLg4Q_ntaeSLz6";
 
