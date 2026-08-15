@@ -58,14 +58,18 @@ async function saveOrderToSupabase(order) {
 
     if (error) {
 
-        console.error(
-            "Supabase order error:",
-            error
-        );
+    console.error("SUPABASE ERROR:", error);
 
-        throw error;
+    alert(
+        "SUPABASE ERROR\n\n" +
+        "Message: " + (error.message || "Unknown error") +
+        "\n\nCode: " + (error.code || "No code") +
+        "\n\nDetails: " + (error.details || "None") +
+        "\n\nHint: " + (error.hint || "None")
+    );
 
-    }
+    throw error;
+}
 
     console.log(
         "Order successfully saved to Supabase."
