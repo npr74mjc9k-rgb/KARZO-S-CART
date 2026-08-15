@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | KARZO'S CART</title>
+
+    <link rel="preconnect"
+
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+
+          href="https://fonts.gstatic.com"
+
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+
+          href="admin.css">
+
+</head>
+
+<body>
+
+    <main class="admin-page">
+
+        <header class="admin-header">
+
+            <div>
+
+                <span>KARZO'S CART</span>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+
+                    Manage customer orders and payments.
+
+                </p>
+
+            </div>
+
+            <a href="index.html"
+
+               class="back-store">
+
+                <i class="fa-solid fa-store"></i>
+
+                Back To Store
+
+            </a>
+
+        </header>
+
+        <!-- DASHBOARD STATS -->
+
+        <section class="admin-stats">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-box"></i>
+
+                <div>
+
+                    <span>Total Orders</span>
+
+                    <strong id="total-orders">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+
+                    <span>Pending Payments</span>
+
+                    <strong id="pending-orders">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <div>
+
+                    <span>Paid Orders</span>
+
+                    <strong id="paid-orders">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-naira-sign"></i>
+
+                <div>
+
+                    <span>Total Revenue</span>
+
+                    <strong id="total-revenue">
+
+                        ₦0
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ORDERS -->
+
+        <section class="admin-orders">
+
+            <div class="orders-heading">
+
+                <div>
+
+                    <span>ORDER MANAGEMENT</span>
+
+                    <h2>Customer Orders</h2>
+
+                </div>
+
+                <button id="refresh-orders">
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+            <div id="admin-orders-list">
+
+                <div class="loading-orders">
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    <p>Loading orders...</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

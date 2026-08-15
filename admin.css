@@ -1,0 +1,385 @@
+/* ==========================
+   ADMIN DASHBOARD
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #111827;
+    --accent-light: #f3f4f6;
+    --green: #16a34a;
+    --green-bg: #dcfce7;
+    --orange: #d97706;
+    --orange-bg: #fef3c7;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.admin-page {
+    width: min(1400px, 92%);
+    margin: auto;
+    padding: 50px 0 80px;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.admin-header span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--muted);
+}
+
+.admin-header h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 8px 0;
+    letter-spacing: -1.5px;
+}
+
+.admin-header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.back-store {
+    text-decoration: none;
+    color: white;
+    background: var(--accent);
+    padding: 13px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: .25s ease;
+}
+
+.back-store:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================
+   STATS
+========================== */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 45px;
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.stat-card > i {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-light);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.stat-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.stat-card strong {
+    font-size: 22px;
+}
+
+
+/* ==========================
+   ORDERS SECTION
+========================== */
+
+.admin-orders {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.orders-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.orders-heading span {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.orders-heading h2 {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+#refresh-orders {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 11px 17px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+#refresh-orders:hover {
+    background: var(--accent-light);
+}
+
+
+/* ==========================
+   ORDER CARD
+========================== */
+
+.admin-order-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 18px;
+}
+
+.admin-order-card:last-child {
+    margin-bottom: 0;
+}
+
+.admin-order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-order-top small,
+.admin-customer small,
+.admin-order-bottom small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.admin-order-top h3 {
+    font-size: 19px;
+}
+
+.payment-status {
+    padding: 7px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.payment-status.paid {
+    color: var(--green);
+    background: var(--green-bg);
+}
+
+.payment-status.pending {
+    color: var(--orange);
+    background: var(--orange-bg);
+}
+
+
+/* ==========================
+   CUSTOMER
+========================== */
+
+.admin-customer {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-customer strong {
+    font-size: 12px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+
+/* ==========================
+   PRODUCTS
+========================== */
+
+.admin-products {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-products h4 {
+    margin-bottom: 13px;
+    font-size: 14px;
+}
+
+.admin-order-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.admin-order-item strong {
+    font-weight: 600;
+}
+
+
+/* ==========================
+   ORDER BOTTOM
+========================== */
+
+.admin-order-bottom {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 22px;
+}
+
+.admin-order-bottom strong {
+    font-size: 13px;
+}
+
+
+/* ==========================
+   LOADING / EMPTY
+========================== */
+
+.loading-orders {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+}
+
+.loading-orders i {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.loading-orders p {
+    font-size: 13px;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+
+    .admin-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .admin-customer {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-page {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-header h1 {
+        font-size: 34px;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-orders {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+    .orders-heading {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .admin-customer {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-order-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-order-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-order-card {
+        padding: 18px;
+    }
+
+}
