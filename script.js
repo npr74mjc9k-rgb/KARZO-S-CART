@@ -16,22 +16,29 @@ const supabaseClient = window.supabase.createClient(
 
 async function saveOrderToSupabase(order) {
 
-    const { data, error } = await supabaseClient
+    const { error } = await supabaseClient
         .from("orders")
         .insert([{
+
             order_number: order.id,
 
-            customer_name: order.customer.name,
+            customer_name:
+                order.customer.name,
 
-            customer_email: order.customer.email,
+            customer_email:
+                order.customer.email,
 
-            customer_phone: order.customer.phone,
+            customer_phone:
+                order.customer.phone,
 
-            customer_address: order.customer.address,
+            customer_address:
+                order.customer.address,
 
-            items: order.items,
+            items:
+                order.items,
 
-            total: order.total,
+            total:
+                order.total,
 
             payment_method:
                 order.paymentMethod || "Paystack",
@@ -40,13 +47,14 @@ async function saveOrderToSupabase(order) {
                 order.paymentStatus || "Paid",
 
             order_status:
-                order.orderStatus || order.status || "Processing",
+                order.orderStatus ||
+                order.status ||
+                "Processing",
 
             paystack_reference:
                 order.paymentReference || null
-        }])
-        .select()
-        .single();
+
+        }]);
 
     if (error) {
 
@@ -60,11 +68,9 @@ async function saveOrderToSupabase(order) {
     }
 
     console.log(
-        "Order saved to Supabase:",
-        data
+        "Order successfully saved to Supabase."
     );
 
-    return data;
 }
 document.addEventListener("DOMContentLoaded", () => {
 
