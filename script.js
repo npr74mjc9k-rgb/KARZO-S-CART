@@ -85,67 +85,206 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = [
 
     {
-        id:1,
-        name:"Rolex Submariner",
-        category:"Luxury Watches",
-        price:12500000,
-        rating:"★★★★★",
-        image:"rolex.jpg",
-        description:"A timeless luxury watch crafted with precision and premium materials."
+        id: 1,
+        name: "Rolex Submariner",
+        category: "Luxury Watches",
+        price: 12500000,
+        rating: "★★★★★",
+        image: "rolex.jpg",
+        description: "A timeless luxury watch crafted with precision and premium materials."
     },
 
     {
-        id:2,
-        name:"iPhone 17 Pro",
-        category:"Electronics",
-        price:1800000,
-        rating:"★★★★★",
-        image:"iPhone.jpg",
-        description:"Apple's newest flagship smartphone with incredible performance."
+        id: 2,
+        name: "iPhone 17 Pro",
+        category: "Electronics",
+        price: 1800000,
+        rating: "★★★★★",
+        image: "iPhone.jpg",
+        description: "Apple's newest flagship smartphone with incredible performance."
     },
 
     {
-        id:3,
-        name:"MacBook Air",
-        category:"Electronics",
-        price:2100000,
-        rating:"★★★★★",
-        image:"macbook.jpg",
-        description:"Ultra-light laptop built for creators and professionals."
+        id: 3,
+        name: "MacBook Air",
+        category: "Electronics",
+        price: 2100000,
+        rating: "★★★★★",
+        image: "macbook.jpg",
+        description: "Ultra-light laptop built for creators and professionals."
     },
 
     {
-        id:4,
-        name:"AirPods Pro",
-        category:"Electronics",
-        price:450000,
-        rating:"★★★★☆",
-        image:"airpods.jpg",
-        description:"Premium wireless earbuds with immersive sound."
+        id: 4,
+        name: "AirPods Pro",
+        category: "Electronics",
+        price: 450000,
+        rating: "★★★★☆",
+        image: "airpods.jpg",
+        description: "Premium wireless earbuds with immersive sound."
     },
 
     {
-        id:5,
-        name:"Nike Air Max",
-        category:"Fashion",
-        price:280000,
-        rating:"★★★★☆",
-        image:"nike.jpg",
-        description:"Comfortable sneakers with iconic Nike style."
+        id: 5,
+        name: "Nike Air Max",
+        category: "Fashion",
+        price: 280000,
+        rating: "★★★★☆",
+        image: "nike.jpg",
+        description: "Comfortable sneakers with iconic Nike style."
     },
 
     {
-        id:6,
-        name:"TAG Heuer Carrera",
-        category:"Luxury Watches",
-        price:4500000,
-        rating:"★★★★★",
-        image:"tagheuer.jpg",
-        description:"Swiss craftsmanship with timeless elegance."
+        id: 6,
+        name: "TAG Heuer Carrera",
+        category: "Luxury Watches",
+        price: 4500000,
+        rating: "★★★★★",
+        image: "tagheuer.jpg",
+        description: "Swiss craftsmanship with timeless elegance."
+    },
+
+    {
+        id: 7,
+        name: "Samsung Galaxy S25 Ultra",
+        category: "Electronics",
+        price: 1650000,
+        rating: "★★★★★",
+        image: "samsung.jpg",
+        description: "A powerful flagship smartphone with an advanced camera system and premium design."
+    },
+
+    {
+        id: 8,
+        name: "Sony WH-1000XM6",
+        category: "Electronics",
+        price: 650000,
+        rating: "★★★★★",
+        image: "sony.jpg",
+        description: "Premium wireless headphones with immersive audio and advanced noise cancellation."
+    },
+
+    {
+        id: 9,
+        name: "Louis Vuitton Leather Bag",
+        category: "Accessories",
+        price: 1850000,
+        rating: "★★★★★",
+        image: "louisvuitton.jpg",
+        description: "An elegant luxury handbag designed for sophisticated everyday style."
+    },
+
+    {
+        id: 10,
+        name: "Ray-Ban Aviator",
+        category: "Accessories",
+        price: 220000,
+        rating: "★★★★☆",
+        image: "rayban.jpg",
+        description: "Iconic aviator sunglasses combining timeless style with everyday comfort."
+    },
+
+    {
+        id: 11,
+        name: "Adidas Ultraboost",
+        category: "Fashion",
+        price: 320000,
+        rating: "★★★★★",
+        image: "adidas.jpg",
+        description: "Responsive running shoes designed for comfort, performance and everyday movement."
+    },
+
+    {
+        id: 12,
+        name: "Apple Watch Ultra",
+        category: "Electronics",
+        price: 950000,
+        rating: "★★★★★",
+        image: "applewatch.jpg",
+        description: "A premium smartwatch built for fitness, adventure and everyday performance."
+    },
+
+    {
+        id: 13,
+        name: "Gucci Leather Wallet",
+        category: "Accessories",
+        price: 480000,
+        rating: "★★★★☆",
+        image: "gucci-wallet.jpg",
+        description: "A refined leather wallet featuring a sleek design and premium craftsmanship."
+    },
+
+    {
+        id: 14,
+        name: "Omega Seamaster",
+        category: "Luxury Watches",
+        price: 5200000,
+        rating: "★★★★★",
+        image: "omega.jpg",
+        description: "A sophisticated Swiss timepiece combining precision engineering with timeless luxury."
     }
+    
+    {
+    id: 15,
+    name: "Polo Ralph Lauren Shirt",
+    category: "Fashion",
+    price: 185000,
+    rating: "★★★★★",
+    image: "polo.jpg",
+    description: "A refined classic shirt crafted for effortless premium style."
+},
+
+{
+    id: 16,
+    name: "Bose QuietComfort Ultra",
+    category: "Electronics",
+    price: 580000,
+    rating: "★★★★★",
+    image: "bose.jpg",
+    description: "Premium headphones delivering rich sound and immersive noise cancellation."
+},
+
+{
+    id: 17,
+    name: "Prada Re-Nylon Bag",
+    category: "Accessories",
+    price: 1250000,
+    rating: "★★★★★",
+    image: "prada.jpg",
+    description: "A sophisticated designer bag combining modern luxury with practical style."
+},
+
+{
+    id: 18,
+    name: "New Balance 9060",
+    category: "Fashion",
+    price: 295000,
+    rating: "★★★★☆",
+    image: "newbalance.jpg",
+    description: "Modern lifestyle sneakers designed with premium comfort and distinctive styling."
+},
+
+{
+    id: 19,
+    name: "Cartier Santos",
+    category: "Luxury Watches",
+    price: 6800000,
+    rating: "★★★★★",
+    image: "cartier.jpg",
+    description: "An iconic luxury timepiece combining elegant design with Swiss precision."
+},
+
+{
+    id: 20,
+    name: "JBL Charge 6",
+    category: "Electronics",
+    price: 260000,
+    rating: "★★★★☆",
+    image: "jbl.jpg",
+    description: "Portable premium audio with powerful sound and long-lasting battery life."
+}
 
 ];
-
 
 
     /* ==========================
