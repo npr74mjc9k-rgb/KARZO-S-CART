@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rating: "★★★★★",
         image: "omega.jpg",
         description: "A sophisticated Swiss timepiece combining precision engineering with timeless luxury."
-    }
+    },
     
     {
     id: 15,
@@ -285,7 +285,6 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 ];
-
 
     /* ==========================
        VARIABLES
