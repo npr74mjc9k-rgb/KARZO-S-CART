@@ -573,6 +573,14 @@ gap:35px;
 @media(max-width:1100px){
 
     .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .product-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -580,20 +588,17 @@ gap:35px;
 
 @media(max-width:600px){
 
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-
     .products{
         margin:80px auto;
     }
 
-    .product-image{
-        height:300px;
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
     }
 
-    .product-bottom strong{
-        font-size:20px;
+    .product-image{
+        height:190px;
     }
 
 }
@@ -3207,88 +3212,4 @@ body.dark #bank-transfer-btn {
 body.dark #bank-transfer-btn:hover {
     background: #cc704b !important;
     color: #ffffff !important;
-}
-/* ==========================
-   FINAL PRODUCT GRID LAYOUT
-========================== */
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-@media (max-width: 1100px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 800px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* ==========================
-   MOBILE PRODUCT CARD FIX
-========================== */
-
-@media (max-width: 600px) {
-
-    .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-    }
-
-    .product-card {
-        border-radius: 18px;
-    }
-
-    .product-image {
-        height: 190px !important;
-    }
-
-    .product-details {
-        padding: 14px;
-    }
-
-    .product-category {
-        font-size: 9px;
-        letter-spacing: 0.7px;
-    }
-
-    .product-details h3 {
-        font-size: 16px;
-        line-height: 1.35;
-        margin: 6px 0;
-    }
-
-    .product-rating {
-        font-size: 12px;
-        margin: 6px 0;
-    }
-
-    .product-price {
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .add-cart {
-        padding: 10px 6px;
-        font-size: 12px;
-    }
-
-    .product-wishlist {
-        width: 36px;
-        height: 36px;
-        top: 10px;
-        right: 10px;
-        font-size: 15px;
-    }
 }
