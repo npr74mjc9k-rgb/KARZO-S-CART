@@ -1848,37 +1848,57 @@ gap:35px;
 
 
 /* ==========================
+
    PRODUCTS MOBILE
+
 ========================== */
-
-@media(max-width:1100px){
-
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
-
-@media(max-width:900px){
-
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
 
 @media(max-width:600px){
 
     .products{
+
         margin:80px auto;
+
     }
 
     .product-grid{
-        grid-template-columns:1fr;
+
+        grid-template-columns:repeat(2, 1fr);
+
+        gap:14px;
+
     }
 
     .product-image{
-        height:300px;
+
+        height:190px;
+
+    }
+
+    .product-details{
+
+        padding:16px;
+
+    }
+
+    .product-details h3{
+
+        font-size:16px;
+
+    }
+
+    .product-price{
+
+        font-size:17px;
+
+    }
+
+    .add-cart{
+
+        padding:11px 8px;
+
+        font-size:13px;
+
     }
 
 }
