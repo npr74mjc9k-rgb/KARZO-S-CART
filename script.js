@@ -915,6 +915,8 @@ filterButtons.forEach(button=>{
     });
 
 });
+
+displayProducts(products);
   /* ==========================
    SORT PRODUCTS
 ========================== */
