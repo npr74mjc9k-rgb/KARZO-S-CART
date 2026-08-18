@@ -430,9 +430,11 @@ const menuOverlay =
 
         modalCart.onclick = ()=>{
 
-            addToCart(product.id);
+    closeProductModal();
 
-        };
+    addToCart(product.id);
+
+};
 
     }
 
