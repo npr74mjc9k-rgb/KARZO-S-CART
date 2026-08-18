@@ -2233,9 +2233,9 @@ gap:35px;
 
     right:20px;
 
-    width:42px;
+    width:46px;
 
-    height:42px;
+    height:46px;
 
     border:none;
 
@@ -2243,11 +2243,37 @@ gap:35px;
 
     background:#fff;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    color:#333;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
 
     cursor:pointer;
 
-    font-size:24px;
+    font-size:25px;
+
+    font-weight:400;
+
+    line-height:1;
+
+    z-index:10;
+
+    transition:.3s ease;
+
+}
+
+.close-modal:hover{
+
+    background:#C96C4B;
+
+    color:#fff;
+
+    transform:rotate(90deg);
 
 }
 
