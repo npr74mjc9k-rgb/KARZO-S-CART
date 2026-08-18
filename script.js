@@ -1329,6 +1329,34 @@ if(checkoutBtn){
     });
 
 }
+/* ==========================
+   HERO SHOP NOW
+========================== */
+
+const shopNowButton =
+    document.querySelector(".hero-btn");
+
+if (shopNowButton) {
+
+    shopNowButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        const shopSection =
+            document.getElementById("shop");
+
+        if (shopSection) {
+
+            shopSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+}
   /* ==========================
    NAVBAR WISHLIST
 ========================== */
