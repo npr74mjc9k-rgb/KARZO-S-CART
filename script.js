@@ -797,26 +797,38 @@ if(checkoutTotal){
 
 
     /* ==========================
-       EVENTS
-    ========================== */
+   EVENTS
+========================== */
 
-    cartIcon.onclick=openCart;
+if(cartIcon){
+    cartIcon.onclick = openCart;
+}
 
-    closeCart.onclick=closeCartPanel;
+if(closeCart){
+    closeCart.onclick = closeCartPanel;
+}
 
-    cartOverlay.onclick=closeCartPanel;
+if(cartOverlay){
+    cartOverlay.onclick = closeCartPanel;
+}
 
-    closeModal.onclick=closeProductModal;
+if(closeModal){
+    closeModal.onclick = closeProductModal;
+}
 
-    productModal.onclick=(event)=>{
+if(productModal){
 
-        if(event.target===productModal){
+    productModal.onclick = (event) => {
+
+        if(event.target === productModal){
 
             closeProductModal();
 
         }
 
     };
+
+}
 
   /* ==========================
    SIDE MENU
