@@ -409,33 +409,68 @@ const menuOverlay =
 
     function openProductModal(product){
 
-        modalImage.src = product.image;
+    modalImage.src = product.image;
 
-        modalImage.alt = product.name;
+    modalImage.alt = product.name;
 
-        modalCategory.textContent = product.category;
+    modalCategory.textContent = product.category;
 
-        modalName.textContent = product.name;
+    modalName.textContent = product.name;
 
-        modalRating.textContent = product.rating;
+    modalRating.textContent = product.rating;
 
-        modalPrice.textContent =
-            "₦" + product.price.toLocaleString();
+    modalPrice.textContent =
+        "₦" + product.price.toLocaleString();
 
-        modalDescription.textContent =
-            product.description;
+    modalDescription.textContent =
+        product.description;
 
-        productModal.classList.add("active");
+    productModal.classList.add("active");
 
-        document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
-        modalCart.onclick = ()=>{
 
-    closeProductModal();
+    /* ==========================
+       MODAL — ADD TO CART
+    ========================== */
 
-    addToCart(product.id);
+    modalCart.onclick = ()=>{
 
-};
+        closeProductModal();
+
+        addToCart(product.id);
+
+    };
+
+
+    /* ==========================
+       MODAL — BUY NOW
+    ========================== */
+
+    if(buyNow){
+
+        buyNow.onclick = ()=>{
+
+            closeProductModal();
+
+            cart.push(product);
+
+            updateCart();
+
+            const checkoutSection =
+                document.getElementById("checkout");
+
+            if(checkoutSection){
+
+                checkoutSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        };
+
+    }
 
 }
     function closeProductModal(){
