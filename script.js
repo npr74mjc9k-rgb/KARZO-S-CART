@@ -317,6 +317,7 @@ const placeOrder =
     const modalDescription = document.getElementById("modal-description");
     const modalCart = document.getElementById("modal-cart");
     const closeModal = document.getElementById("close-modal");
+    const buyNow = document.getElementById("buy-now");
 
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
@@ -436,7 +437,24 @@ const menuOverlay =
 
 };
 
+buyNow.onclick = ()=>{
+
+    addToCart(product.id);
+
+    closeProductModal();
+
+    const checkoutSection =
+        document.getElementById("checkout");
+
+    if(checkoutSection){
+
+        checkoutSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
     }
+
+};
 
     function closeProductModal(){
 
