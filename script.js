@@ -437,6 +437,7 @@ const menuOverlay =
 
 };
 
+}
     function closeProductModal(){
 
         productModal.classList.remove("active");
