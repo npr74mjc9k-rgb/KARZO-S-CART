@@ -437,25 +437,6 @@ const menuOverlay =
 
 };
 
-buyNow.onclick = ()=>{
-
-    addToCart(product.id);
-
-    closeProductModal();
-
-    const checkoutSection =
-        document.getElementById("checkout");
-
-    if(checkoutSection){
-
-        checkoutSection.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-};
-
     function closeProductModal(){
 
         productModal.classList.remove("active");
